@@ -75,14 +75,14 @@ function Todo(props) {
       onClose={e => setOpen(false)}
       >
       <div style={modalStyle} className={classes.paper}>
-      <h1>Update</h1>
-      <form>
-      <FormControl>
-        <InputLabel>Write a Todo</InputLabel>
-        <Input placeholder={props.todo.todo} value={input} onChange={event => setInput(event.target.value)}
+      <h2  >Update Todo</h2>
+      <form className="modal__form">
+      <FormControl className="modal__input">
+        <InputLabel>{props.todo.todo}</InputLabel>
+        <Input   value={input} onChange={event => setInput(event.target.value)}
         />
       </FormControl> 
-      <Button type="submit" disabled={!input} onClick={updateTodo}>Update Todo</Button>
+      <Button type="submit" disabled={!input} variant="contained" color="primary" onClick={updateTodo}>Update Todo</Button>
       </form>
       </div>
     </Modal>

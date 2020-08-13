@@ -16,3 +16,14 @@
   .todo__avatar {
     color: #eeef20;
   }
+  .modal__form {
+      display: flex;
+      align-items: center;
+  }
+  .modal__input { 
+      flex: 0.7;
+      margin-right: 10px;
+  }
+  .modal__form button {
+      flex: 0.3;
+  }
