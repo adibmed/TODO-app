@@ -1,3 +1,8 @@
 .todo__list {
     text-align: center;
-}
+    background: #48bfe3;
+    margin: 10px 0px!important; 
+    display: flex;
+    align-items: center;
+    padding: 10px!important;
+} 

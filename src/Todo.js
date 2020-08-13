@@ -8,10 +8,15 @@ import {
   Avatar, 
   Modal,
   Button,
+  ListItemSecondaryAction,
+  IconButton,
 } from "@material-ui/core";
 import { db } from "./firebase";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever"
 import { makeStyles } from '@material-ui/core/styles'
+import FolderIcon from '@material-ui/icons/Folder'
+import EditIcon from '@material-ui/icons/Edit'
+import DeleteIcon from '@material-ui/icons/Delete'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +40,8 @@ function Todo(props) {
     setOpen(true)
   }
   
-  const updateTodo = () => {
+  const updateTodo = (event) => {
+    event.preventDefault();
     // update the todo with the new input text
     db.collection("todos").doc(props.todo.id).set({
       todo: input
@@ -52,24 +58,33 @@ function Todo(props) {
       >
       <div className={classes.paper}>
       <h1>I am a modal</h1>
+      <form>
       <input placeholder={props.todo.todo} value={input} onChange={event => setInput(event.target.value)}></input>
-      <Button disabled={!input} onClick={updateTodo}>Update Todo</Button>
+      <Button type="submit" disabled={!input} onClick={updateTodo}>Update Todo</Button>
+      </form>
       </div>
     </Modal>
     <List className="todo__list">
       <ListItem>
         <ListItemAvatar>
-          <Avatar></Avatar>
+          <Avatar> <FolderIcon /></Avatar>
         </ListItemAvatar>
         <ListItemText primary={props.todo.todo} secondary="Deadline ⏰" />
-      </ListItem>
-      <button onClick={e => setOpen(true)}>Edit</button>
-      <DeleteForeverIcon
+      
+      </ListItem>  
+      <IconButton edge="end" aria-label="delete">
+        <EditIcon className="todo__edit" onClick={e => setOpen(true)}/>
+      </IconButton>
+
+       <IconButton edge="end" aria-label="delete">
+        <DeleteIcon className="todo__delete"
         onClick={(evene) => {
           db.collection("todos").doc(props.todo.id).delete();
-        }}
-      />
+        }}/>
+      </IconButton>
     </List>
+
+    
     </>
   );
 }

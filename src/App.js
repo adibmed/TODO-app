@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World🔥! This Adibe here🚀 </h1>
+      <h1>Hello World🔥! This Adibe🚀 </h1>
     <form>
       <FormControl>
         <InputLabel>Write a Todo</InputLabel>
