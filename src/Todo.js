@@ -10,6 +10,9 @@ import {
   Button,
   ListItemSecondaryAction,
   IconButton,
+  FormControl,
+  InputLabel,
+  Input,
 } from "@material-ui/core";
 import { db } from "./firebase";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever"
@@ -19,6 +22,20 @@ import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
 import HourglassFullIcon from '@material-ui/icons/HourglassFull';
 
+function rand() {
+  return Math.round(Math.random() * 20) - 10;
+}
+
+function getModalStyle() {
+  const top = 30;
+  const left = 50;
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -36,7 +53,7 @@ function Todo(props) {
   const classes = useStyles();
   const [open, setOpen] = useState(false)
   const [input,  setInput] = useState('')
-
+  const [modalStyle] = React.useState(getModalStyle);
   const handleOpen = () => {
     setOpen(true)
   }
@@ -57,10 +74,14 @@ function Todo(props) {
       open={open}
       onClose={e => setOpen(false)}
       >
-      <div className={classes.paper}>
-      <h1>I am a modal</h1>
+      <div style={modalStyle} className={classes.paper}>
+      <h1>Update</h1>
       <form>
-      <input placeholder={props.todo.todo} value={input} onChange={event => setInput(event.target.value)}></input>
+      <FormControl>
+        <InputLabel>Write a Todo</InputLabel>
+        <Input placeholder={props.todo.todo} value={input} onChange={event => setInput(event.target.value)}
+        />
+      </FormControl> 
       <Button type="submit" disabled={!input} onClick={updateTodo}>Update Todo</Button>
       </form>
       </div>
