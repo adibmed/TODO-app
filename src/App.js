@@ -13,6 +13,7 @@ function App() {
   useEffect(function() {
     // This code here... fires when the app.js loads 
     db.collection("todos").onSnapshot(snapshot => {
+      console.log(snapshot.docs.map(doc => doc.data()))
       setTodos(snapshot.docs.map(doc => doc.data().todo))
     }) 
   }, [])
@@ -22,7 +23,10 @@ function App() {
   const addTodo = (event) => {
     //This will fire off when we click the button
     event.preventDefault();
-    setTodos([...todos, input]);
+
+    db.collection("todos").add({
+      todo: input
+    })
     setInput("");
   }
 
