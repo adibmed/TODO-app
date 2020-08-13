@@ -3,13 +3,18 @@
 }
 .App > ul {
   padding: 0;
-  width: 600px;
+  max-width: 600px;
   margin: auto;
   padding-top: 20px;
+}
+.App__header {
+  display: flex;
+  margin: auto; 
+  width: 600px; 
+  padding-top: 30px;
+}
+.App__input {
+  max-width: 450px;
+  width: 450px;
+  margin-right: 15px;
 } 
-.todo__edit {
-  color: white; 
-}
-.todo__delete {
-  color: #e71d36; 
-}

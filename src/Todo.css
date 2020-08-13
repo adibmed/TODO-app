@@ -4,5 +4,15 @@
     margin: 10px 0px!important; 
     display: flex;
     align-items: center;
-    padding: 10px!important;
+    padding: 10px 20px 10px 10px!important;
 } 
+ 
+.todo__edit {
+    color: #ffba08;  
+  }
+  .todo__delete {
+    color: #e71d36; 
+  } 
+  .todo__avatar {
+    color: #eeef20;
+  }

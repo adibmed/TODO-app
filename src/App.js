@@ -34,11 +34,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World🔥! This Adibe🚀 </h1>
+      <h1>Hello World🔥! Welcome to Adibe Todo app🚀 </h1>
     <form>
+      <div className="App__header">
       <FormControl>
         <InputLabel>Write a Todo</InputLabel>
         <Input
+        className="App__input"
           value={input}
           onChange={(event) => setInput(event.target.value)}
         />
@@ -49,9 +51,11 @@ function App() {
         color="primary"
         type="submit"
         onClick={addTodo}
+        className="App__button"
       >
         Add Todo
       </Button>
+      </div>
       </form>
       <ul>
         {todos.map((todo) => (

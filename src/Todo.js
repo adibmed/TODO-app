@@ -17,6 +17,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import FolderIcon from '@material-ui/icons/Folder'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
+import HourglassFullIcon from '@material-ui/icons/HourglassFull';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -67,7 +68,7 @@ function Todo(props) {
     <List className="todo__list">
       <ListItem>
         <ListItemAvatar>
-          <Avatar> <FolderIcon /></Avatar>
+          <Avatar > <HourglassFullIcon className="todo__avatar"/></Avatar>
         </ListItemAvatar>
         <ListItemText primary={props.todo.todo} secondary="Deadline ⏰" />
       
